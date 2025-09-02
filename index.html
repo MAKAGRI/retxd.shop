@@ -1,182 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAT Cargo VAD LLC</title>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            color: #333;
-        }
-        nav {
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 20px;
-            background: #111;
-            color: #fff;
-            min-height: 100vh;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .hero-text {
-            max-width: 500px;
-            padding: 20px;
-            animation: slideInLeft 1.5s ease;
-        }
-        .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        .hero-text p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .hero-img img {
-            max-width: 400px;
-            width: 100%;
-            border-radius: 10px;
-            animation: slideInRight 1.5s ease;
-        }
-        .section {
-            padding: 60px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #555;
-        }
-        .contact {
-            background: #e9e9e9;
-            padding: 60px 20px;
-        }
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AUDOUCE — Immobilier & Location</title>
+  <style>
+    :root{
+      --green:#1f4d2a;   /* primaire */
+      --gold:#d4a017;    /* accent  */
+      --bg:#f7fbf5;      /* fond    */
+      --card:#ffffff;    /* cartes  */
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#222}
+    a{color:var(--green);text-decoration:none}
+    header{background:var(--green);color:#fff;text-align:center;padding:28px 16px;border-bottom:5px solid var(--gold)}
+    header h1{margin:0;font-size:2.4rem}
+    header p{margin:6px 0 0;opacity:.95}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideInLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-    </style>
+    nav{background:#163820;text-align:center;padding:12px}
+    nav a{color:#fff;margin:0 14px;font-weight:700}
+    nav a:hover{color:var(--gold)}
+
+    .hero{max-width:1100px;margin:22px auto;display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center;padding:0 14px}
+    .hero img{width:100%;border-radius:12px;border:4px solid var(--gold)}
+    .hero .box{background:var(--card);border-left:6px solid var(--gold);border-radius:12px;padding:16px}
+
+    .section{max-width:1100px;margin:22px auto;background:var(--card);padding:22px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+    .section h2{margin:0 0 12px;color:var(--green)}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    ul{margin:0;padding-left:18px;line-height:1.8}
+
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
+    .gallery img{width:100%;border-radius:10px;border:2px solid var(--gold)}
+
+    .cta{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--gold);color:#111;padding:12px 16px;border-radius:10px;font-weight:800}
+    .btn.secondary{background:#fff;color:var(--green);border:2px solid var(--green)}
+
+    footer{background:var(--green);color:#fff;text-align:center;padding:18px;margin-top:26px;border-top:5px solid var(--gold)}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">PAT Cargo VAD LLC</div>
+  <header>
+    <h1>AUDOUCE</h1>
+    <p>Immobilier & Location — Grand Est, France</p>
+  </header>
+
+  <nav>
+    <a href="#about">À propos</a>
+    <a href="#offres">Nos offres</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="https://media.licdn.com/dms/image/v2/D4D12AQHxtOO4fVpz6w/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1704286844167?e=2147483647&v=beta&t=4HSTfuioCQ7kUaXbQvu9ILqWwdBjLmtdVZFnmIyo6A0" alt="Bien immobilier — hero">
+    <div class="box">
+      <h2 style="margin:0 0 8px">Des espaces pensés pour vivre.</h2>
+      <p>Gestion et location de biens avec transparence, réactivité et accompagnement personnalisé.</p>
+      <div class="cta">
+        <a class="btn" href="tel:+33745381917">Appeler : +33 7 45 38 19 17</a>
+        <a class="btn secondary" href="mailto:contact@retxd.shop">Écrire : contact@retxd.shop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="about" class="section">
+    <h2>À propos</h2>
+    <div class="two-col">
+      <p><strong>AUDOUCE</strong> accompagne propriétaires et locataires sur des biens résidentiels et professionnels. Notre équipe privilégie la clarté des démarches, une sélection rigoureuse et un suivi continu.</p>
+      <p>Adresse : <strong>10 Rue Claude Monet, 10800 Saint-Julien-les-Villas, Grand Est, France</strong>.</p>
+    </div>
+  </section>
+
+  <!-- OFFRES -->
+  <section id="offres" class="section">
+    <h2>Nos offres</h2>
+    <ul>
+      <li>Location et gestion locative</li>
+      <li>Recherche de locataires & visites</li>
+      <li>Estimation et mise en valeur des biens</li>
+      <li>Accompagnement administratif & états des lieux</li>
+      <li>Conseil investissement locatif</li>
+    </ul>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie" class="section">
+    <h2>Galerie</h2>
+    <div class="gallery">
+      <img src="https://avatars.mds.yandex.net/get-altay/10494556/2a0000018ea9234e9ead3d85124a2935a845/XXL_height" alt="Intérieur lumineux">
+      <img src="https://avatars.mds.yandex.net/i?id=7385c50b4d1bd70e9dae72647a7052c1e1fdb5ef-12569754-images-thumbs&n=13" alt="Salon moderne">
+      <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1zHO8I.img?w=1600&h=970&m=4&q=75" alt="Résidence contemporaine">
+      <img src="https://avatars.mds.yandex.net/i?id=bcfed5f5e3cd2d13c654494c41a13e65d4bbef93-10226583-images-thumbs&n=13" alt="Cuisine équipée">
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="two-col">
+      <div>
+        <p>📧 <strong>Email :</strong> <a href="mailto:contact@retxd.shop">contact@retxd.shop</a></p>
+        <p>📞 <strong>Téléphone :</strong> <a href="tel:+33745381917">+33 7 45 38 19 17</a></p>
+        <p>📍 <strong>Adresse :</strong> 10 Rue Claude Monet, 10800 Saint-Julien-les-Villas</p>
+      </div>
+      <div>
+        <p><em>Horaires</em></p>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <li>Lun–Ven : 9h00 – 18h00</li>
+          <li>Samedi : 10h00 – 14h00</li>
+          <li>Dimanche : Fermé</li>
         </ul>
-    </nav>
-
-    <div class="hero" id="home">
-        <div class="hero-text">
-            <h1>PAT Cargo VAD LLC</h1>
-            <p>Your trusted partner in transportation and warehousing. We provide reliable cargo services and storage solutions to meet your business needs with efficiency and care.</p>
-        </div>
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=934&q=80" alt="Cargo Services">
-        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section" id="about">
-        <h2>About Us</h2>
-        <p>PAT Cargo VAD LLC is a Domestic LLC based in Arizona, offering specialized services in transportation and warehousing. With a focus on reliability and customer satisfaction, we have been serving businesses since 2021.</p>
-        <p><strong>Registered Address:</strong><br>
-        2902 W Sweetwater Ave, Apt 2190, Phoenix, AZ 85029, United States</p>
-    </div>
-
-    <div class="section contact" id="contact">
-        <h2>Contact Us</h2>
-        <p><strong>Email:</strong> <a href="mailto:contact@patcargovadllc.click">contact@patcargovadllc.click</a></p>
-        <p><strong>Agent Address:</strong><br>
-        2902 W Sweetwater Ave, Apt 2190, Phoenix, AZ 85029, United States</p>
-    </div>
-
-    <footer>
-        &copy; 2025 PAT Cargo VAD LLC. All rights reserved.
-    </footer>
-
-    <script>
-        // Intersection Observer for fade-in effect
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
+  <footer>
+    <p>&copy; 2025 AUDOUCE — Immobilier & Location</p>
+  </footer>
 
 </body>
 </html>
